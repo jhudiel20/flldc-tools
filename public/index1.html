@@ -6,39 +6,29 @@
 <title>FLLDC Tools</title>
 <link href="../assets/img/LOGO.png" rel="icon" style="border-radius:10%">
 <style>
-    /* White Minimalist Theme */
+    /* High-Tech Dark Mode Theme */
     body {
         font-family: 'Arial', sans-serif;
-        background-color: #ffffff;
-        color: #333;
+        background-color: #0e0e0e;
+        color: #d1d1d1;
         margin: 0;
         padding: 0;
-        background-image: url('../assets/img/LOGO.png');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
     .container {
-        max-width: 1000px;
-        margin: auto;
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 20px;
         text-align: center;
-        background: rgba(255, 255, 255, 0.9);
-        padding: 30px;
-        border-radius: 15px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
     .logo img {
-        width: 100px;
+        width: 120px;
         height: auto;
         margin-bottom: 20px;
+        filter: drop-shadow(0 0 8px #00e6e6);
     }
     .section-title {
         font-size: 2em;
-        color: #333;
+        color: #00e6e6;
         text-transform: uppercase;
         letter-spacing: 1px;
         margin: 40px 0 20px;
@@ -49,47 +39,68 @@
         display: block;
         width: 80px;
         height: 2px;
-        background: #333;
+        background: #00e6e6;
         margin: 8px auto 0;
     }
     .grid {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 20px;
+        gap: 30px;
     }
     .card {
-        width: 120px;
-        height: 120px;
-        background: #f0f0f0;
-        border: 2px solid #e0e0e0;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        width: 100px;
+        height: 100px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(8px);
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5), 0 0 15px #00e6e6;
         text-align: center;
-        padding: 10px;
+        padding: 20px 10px;
         cursor: pointer;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         text-decoration: none;
-        color: #333;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        color: #d1d1d1;
+        overflow: hidden;
+        position: relative;
     }
     .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        transform: translateY(-10px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7), 0 0 20px #00e6e6;
+        background: rgba(0, 230, 230, 0.15);
     }
     .card img {
-        width: 50px;
-        height: 50px;
-        margin-bottom: 10px;
-        object-fit: contain;
+        width: 60px;
+        height: 60px;
+        filter: drop-shadow(0 0 5px #00e6e6);
+        transition: transform 0.3s ease;
+        object-fit: contain; /* Ensures image maintains its aspect ratio */
+    }
+    .card:hover img {
+        transform: scale(1.1);
     }
     .card p {
-        font-size: 0.8rem;
+        font-size: 0.5rem;
+        color: #d1d1d1;
+        margin-top: 10px;
         font-weight: bold;
         text-transform: uppercase;
+    }
+    .card::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 300%;
+        height: 300%;
+        background: radial-gradient(circle, rgba(0, 230, 230, 0.2), transparent);
+        transition: opacity 0.3s ease;
+        opacity: 0;
+        transform: translate(-50%, -50%);
+        z-index: 0;
+    }
+    .card:hover::before {
+        opacity: 1;
     }
     @media (max-width: 768px) {
         .grid {
