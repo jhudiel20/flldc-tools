@@ -13,14 +13,14 @@
         color: #333;
         margin: 0;
         padding: 0;
-        background-image: url('../assets/img/LOGO.png');
+        background-image: url('../assets/img/bg_picture.jpg');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         height: 100vh;
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        justify-content: center;
+        align-items: center;
     }
     .container {
         max-width: 1000px;
@@ -28,18 +28,41 @@
         text-align: center;
         padding: 30px;
         border-radius: 15px;
+        /* Light gray with slight opacity */
         background: rgba(200, 200, 200, 0.7);
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
+    .logo img {
+        width: 100px;
+        height: auto;
+        margin-bottom: 10px;
+    }
+    .section-title {
+        font-size: 2em;
+        color: #333;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin: 40px 0 20px;
+        position: relative;
+    }
+    .section-title::after {
+        content: "";
+        display: block;
+        width: 80px;
+        height: 2px;
+        background: #333;
+        margin: 8px auto 0;
+    }
     .grid {
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
         gap: 20px;
     }
     .card {
         width: 120px;
         height: 120px;
-        background: rgba(255, 255, 255, 0.9);
+        background: rgba(255, 255, 255, 0.9); /* Slight opacity for readability */
         border: 2px solid #e0e0e0;
         border-radius: 10px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -56,7 +79,7 @@
     }
     .card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 6px 12px rgba(0, 123, 255, 0.4);
+        box-shadow: 0 6px 12px rgba(54, 116, 197, 0.908);
     }
     .card img {
         width: 50px;
@@ -64,34 +87,19 @@
         margin-bottom: 10px;
         object-fit: contain;
     }
-    /* Scrolling Footer */
-    .footer {
-        overflow: hidden;
-        background: #333;
-        color: white;
-        padding: 10px 0;
+    .card p {
+        font-size: 0.8rem;
+        font-weight: bold;
+        text-transform: uppercase;
     }
-    .marquee {
-        display: flex;
-        gap: 30px;
-        animation: scroll 20s linear infinite;
-    }
-    .marquee img {
-        height: 50px;
-        width: auto;
-        filter: brightness(0) invert(1);
-        transition: transform 0.3s;
-    }
-    .marquee img:hover {
-        transform: scale(1.1);
-    }
-    /* Animation for scrolling effect */
-    @keyframes scroll {
-        from {
-            transform: translateX(100%);
+    @media (max-width: 768px) {
+        .grid {
+            flex-direction: column;
+            align-items: center;
         }
-        to {
-            transform: translateX(-100%);
+        .card {
+            width: 80%;
+            height: auto;
         }
     }
 </style>
@@ -99,6 +107,10 @@
 <body>
 
 <div class="container">
+    <div class="logo"><img src="../assets/img/LOGO.png" alt="FLLDC Logo"></div>
+
+    <!-- Tools Section -->
+    <div class="section-title">Tools</div>
     <div class="grid">
         <a href="https://flldc-ims.vercel.app/" class="card" target="_blank" title="Access FLLDC IMS">
             <img src="../assets/img/LOGO.png" alt="FLLDC IMS App">
@@ -112,17 +124,6 @@
             <img src="../assets/img/LOGO.png" alt="FLLDC Reserved Calendar">
             <p>Reserved Room Calendar</p>
         </a>
-    </div>
-</div>
-
-<!-- Scrolling Marquee Footer -->
-<div class="footer">
-    <div class="marquee">
-        <img src="../assets/img/FAST LOGO.png" alt="Logo 1">
-        <img src="../assets/img/LOGO.png" alt="Logo 2">
-        <img src="../assets/img/TESDA.png" alt="Logo 3">
-        <img src="../assets/img/EXPERIENCE.png" alt="Logo 4">
-        <!-- Add more logos as needed -->
     </div>
 </div>
 
